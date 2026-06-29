@@ -6,7 +6,10 @@ public class Main {
     public static void main(String[] args) {
         int[][] studentMarks = { {1, 4, 2}, {3, 6, 8} };
         System.out.println(avg(studentMarks));
-        System.out.println(passesOrNot(avg(studentMarks)));
+        for(int i = 0; i <= avg(studentMarks).size()-1; i++){
+            passesOrNot(avg(studentMarks).get(i));
+
+        }
     }
 
     private static ArrayList<Double> avg (int arr[][]){
@@ -24,9 +27,8 @@ public class Main {
         };
         return average;
     };
-    private static boolean passesOrNot (ArrayList<Double> arr){
-        for (int i = 0; i <= arr.size()-1; i++){
-            if(arr.get(i) >= 4 ){
+    private static boolean passesOrNot (double check){
+            if(check >= 4 ){
                 System.out.println("Passes");
                 return true;
             }
@@ -34,9 +36,5 @@ public class Main {
                 System.out.println("Failed");
                 return false;
             }
-
-        };
-        return true;
-
     };
 }
