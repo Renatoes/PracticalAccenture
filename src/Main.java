@@ -1,15 +1,42 @@
+import java.util.ArrayList;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        int[][] studentMarks = { {1, 4, 2}, {3, 6, 8} };
+        System.out.println(avg(studentMarks));
+        System.out.println(passesOrNot(avg(studentMarks)));
     }
+
+    private static ArrayList<Double> avg (int arr[][]){
+        ArrayList<Double> average =  new ArrayList<Double>();
+        for (int i = 0; i <= arr.length-1; i++){
+            double temp = 0.00;
+            for (int j = 0; j <= arr[i].length-1; j++){
+                temp += arr[i][j];
+
+            };
+
+            temp = temp / arr[i].length;
+
+            average.add(temp);
+        };
+        return average;
+    };
+    private static boolean passesOrNot (ArrayList<Double> arr){
+        for (int i = 0; i <= arr.size()-1; i++){
+            if(arr.get(i) >= 4 ){
+                System.out.println("Passes");
+                return true;
+            }
+            else {
+                System.out.println("Failed");
+                return false;
+            }
+
+        };
+        return true;
+
+    };
 }
